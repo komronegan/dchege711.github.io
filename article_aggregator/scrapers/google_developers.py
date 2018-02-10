@@ -6,9 +6,9 @@ Side Note: The guys at Google are kind enough to provide an XML file :-)
 """
 
 import feedparser
-import datetime
+from datetime import date
 
-def get_new_posts(relevant_day):
+def get_new_posts(relevant_date):
     """
     Return a list of all the posts made on the specified day.
     
@@ -36,6 +36,13 @@ def get_new_posts(relevant_day):
     # link = entries[1]["link"]
     # title = entries[1]["title"]
     # content = h.handle(entries[1]["content"][0]["value"])
+    start_of_2018 = date(2018, 1, 1)
     
     for entry in entries:
-        print(entry["published"])
+        year, month, day = entry["published"].split("T")[0].split("-")
+        entrys_date = date(int(year), int(month), int(day))
+        if entrys_date >= start_of_2018:
+            print(entrys_date, ":", entry["title"])
+        else:
+            break
+        

@@ -45,7 +45,7 @@ def get_summary(text_to_summarized, blog_name, num_sentences=7, num_keywords=5):
     response_as_json = json.loads(r.text)
     try:
         return True, response_as_json["sm_api_message"]
-    else:
+    except KeyError:
         return False, response_as_json["sm_api_message"]
     
 def write_to_html(data, html_name="content.html"):

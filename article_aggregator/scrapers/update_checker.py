@@ -23,8 +23,8 @@ def get_new_posts(blog_name):
     except KeyError:
         raise KeyError("The provided blog name doesn't match any on file")
     
-    for post in new_posts:
-        print(post["title"], post["publication_date"])
+    # for post in new_posts:
+        # print(post["title"], post["publication_date"])
         # content = h.handle(post["content"])
         # summary = smmry_client.get_summary(content, blog_name)
     
@@ -33,10 +33,8 @@ def get_day(desired_day):
     
     if desired_day == "today":
         return today
-    
     elif desired_day == "yesterday":
         return today - datetime.timedelta(days=1)
-    
     else:
         raise ValueError("Unsupported query was made.")
 
