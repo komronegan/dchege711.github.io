@@ -1,0 +1,97 @@
+<!DOCTYPE html><html><body><p>_Posted by Laurence Moroney, Developer Advocate_
+
+We're delighted to announce that TensorFlow 1.5 is now public! Install it now
+to get a bunch of new features that we hope you'll enjoy!
+
+### Eager Execution for TensorFlow
+
+First off, Eager Execution for TensorFlow is now available as a preview. We've
+heard lots of feedback about the programming style of TensorFlow, and how
+developers _really_ want an imperative, define-by-run programming style. With
+Eager Execution for TensorFlow enabled, you can execute TensorFlow operations
+_immediately_ as they are called from Python _._ This makes it easier to get
+started with TensorFlow, and can make research and development more intuitive.
+
+For example, think of a simple computation like a matrix multiplication.
+Today, in TensorFlow it would look something like this:
+
+    
+    
+    x = tf.placeholder(tf.float32, shape=[1, 1])  
+    m = tf.matmul(x, x)  
+      
+    with tf.Session() as sess:  
+      print(sess.run(m, feed_dict={x: [[2.]]}))  
+    
+
+If you enable Eager Execution for TensorFlow, it will look more like this:
+
+    
+    
+    x = [[2.]]  
+    m = tf.matmul(x, x)  
+      
+    print(m)  
+    
+
+You can learn more about Eager Execution for TensorFlow here (check out the
+user guide linked at the bottom of the page, and also this presentation) and
+the API docs here.
+
+### TensorFlow Lite
+
+The Developer preview of TensorFlow Lite is built into version 1.5. TensorFlow
+Lite, TensorFlow's lightweight solution for mobile and embedded devices, lets
+you take a trained TensorFlow model and convert it into a .tflite file which
+can then be executed on a mobile device with low-latency. Thus the _training_
+doesn't have to be done on the device, nor does the device need to upload data
+to the cloud to have it worked upon. So, for example, if you want to classify
+an image, a trained model could be deployed to the device and classification
+of the image is done on-device directly.
+
+TensorFlow Lite includes a sample app to get you started. This app uses the
+MobileNet model of 1001 unique image categories. It recognizes an image and
+matches it to a number of categories, listing the top 3 that it recognizes.
+The app is available on both Android and iOS.
+
+You can learn more about TensorFlow Lite, and how to convert your models to be
+available on mobile here.
+
+### GPU Acceleration Updates
+
+If you are using GPU Acceleration on Windows or Linux, TensorFlow 1.5 now has
+CUDA 9 and cuDNN 7 support built-in.
+
+To learn more about NVidia's Compute Unified Device Architecture (CUDA) 9,
+check out NVidia's site here.
+
+This is enhanced by the CUDA Deep Neural Network Library (cuDNN), the latest
+release of which is version 7. Support for this is now included in TensorFlow
+1.5.
+
+Here are some Medium articles on GPU support on Windows and Linux, and how to
+install them on your workstation (if it supports the requisite hardware)
+
+### Documentation Site Updates
+
+In line with this release we've also overhauled the documentation site,
+including an improved Getting Started flow that will get you from no knowledge
+to building a neural network to classify different types of iris in a very
+short time. Check it out!
+
+### Other Enhancements
+
+Beyond these features, there's lots of other enhancements to Accelerated
+Linear Algebra (XLA), updates to RunConfig and much more. Check the release
+notes here.
+
+### Installing TensorFlow 1.5
+
+To get TensorFlow 1.5, you can use the standard pip installation (or pip3 if
+you use python3)
+
+    
+    
+    $  pip install --ignore-installed --upgrade tensorflow
+
+</p></body></html>

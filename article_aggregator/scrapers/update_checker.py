@@ -32,21 +32,7 @@ def get_new_stories(blog_name):
     link = entries[1]["link"]
     title = entries[1]["title"]
     content = h.handle(entries[1]["content"][0]["value"])
-    print(type(content))
-    summary = smmry_client.get_summary(content)
-    
-def write_to_html(data, html_name):
-    output_file = open(html_name, 'w')
-    html_content = """
-    <!DOCTYPE html>
-    <html>
-    <body>
-    <p>
-    
-    """
-    output_file.write("<!DOCTYPE html><html><body><p>")
-    output_file.write(data)
-    output_file.write("</p></body></html>")
+    summary = smmry_client.get_summary(content, blog_name)
 
 def main():
     get_new_stories("google_developers")
