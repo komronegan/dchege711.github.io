@@ -1,3 +1,5 @@
+* Environment name: `personal_site`
+
 ### Purpose
 
 * There are a couple of websites that I wish to keep track of:
